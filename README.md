@@ -1,13 +1,13 @@
-* Very basic framework for writing templated letters
-** features
-- define fields (optionally a list of values) to be filled in
-- enable or disable lines in the template
+# Very basic framework for writing templated letters
+## features
+* define fields (optionally a list of values) to be filled in
+* enable or disable lines in the template
 
-** requirements
-- python3
-- pythondialog [[https://pypi.org/project/pythondialog/]]
-- dialog commandline utility [[https://invisible-island.net/dialog/]] 
+## requirements
+* python3
+* pythondialog [[https://pypi.org/project/pythondialog/]]
+* dialog commandline utility [[https://invisible-island.net/dialog/]] 
 
-** platforms
+## platforms 
 - Tested on debian 10 (buster), Python 3.7.3, pythondialog 3.5.1, dialog 1.3-20190211
 - I can look into windows support if there is demand. Dialog uses ncurses which has poor windows support. Might work with this program as a dialog backend: [[http://andrear.altervista.org/home/cdialog.php]]

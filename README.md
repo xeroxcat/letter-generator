@@ -2,6 +2,7 @@
 ## features
 * define fields (optionally a list of values) to be filled in
 * enable or disable lines in the template
+* run the generator to interactively define a letter instance
 
 ## requirements
 * python3

@@ -4,6 +4,9 @@ from dialog import Dialog
 import locale
 import json
 
+FIELD_FILE = 'letter_fields.json'
+TEMPLATE_FILE = 'letter_template.txt'
+
 locale.setlocale(locale.LC_ALL, '')
 
 dwindow = Dialog(dialog='dialog', autowidgetsize=True)
@@ -15,14 +18,14 @@ dwindow.set_background_title('MadLib')
 #   open files
 # load spec file
 fieldspec = {}
-with open('fields.json') as f:
+with open(FIELD_FILE) as f:
     fieldspec = json.load(f)
 
 if 'default_exclude' in fieldspec:
     exclude_defaults = fieldspec['default_exclude']
 
 template_lines = []
-with open('cl_template.txt') as f:
+with open(TEMPLATE_FILE) as f:
     template_lines = [(str(i), line.replace('\n', ''))
                       for i, line in enumerate(f.readlines())]
 
@@ -70,7 +73,7 @@ for i, p in enumerate(paragraphs):
 if dwindow.yesno(str(excluded_lines), title="Excluded Lines",
                  yes_label="Continue", no_label="Save as Default") != Dialog.OK:
     fieldspec['default_exclude'] = excluded_lines
-    with open('fields.json', 'w') as f:
+    with open(FIELD_FILE, 'w') as f:
         json.dump(fieldspec, f, indent=4, separators=(',', ': '))
 
 #   exclude selected lines from template
@@ -142,7 +145,7 @@ if new_field_vals:
                     yes_label="Continue without Saving",
                     no_label="Save to Default") != Dialog.OK:
         fieldspec['default_exclude'] = excluded_lines
-        with open('fields.json', 'w') as f:
+        with open(FIELD_FILE, 'w') as f:
             json.dump(fieldspec, f, indent=4, separators=(',', ': '))
 
 #   format output and print

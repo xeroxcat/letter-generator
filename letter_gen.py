@@ -52,12 +52,14 @@ for i, p in enumerate(paragraphs):
         else:
             line_choices[idx] = (*entry, line)
     code, t_list = dwindow.checklist(title='Paragraph ' + str(i),
-                                     text='Select which lines to exclude',
+                                     text='Select which lines to exclude\n[SPACE] - line toggle\n[ENTER] - next screen',
                                      choices=line_choices,
                                      cr_wrap=True, item_help=True,
                                      help_button=True, 
                                      help_label='See Full Line',
                                      help_status=True)
+    if code == Dialog.CANCEL:
+        raise SystemExit
     while code == Dialog.HELP:
         dwindow.msgbox(t_list[0])
         code, t_list = dwindow.checklist(title='Paragraph ' + str(i),
@@ -67,6 +69,8 @@ for i, p in enumerate(paragraphs):
                                      help_button=True,
                                      help_label='See Full Line',
                                      help_status=True)
+        if code == Dialog.CANCEL:
+            raise SystemExit
     excluded_lines.extend(t_list)
 
 #   option to resave lines to exclude
@@ -113,6 +117,8 @@ for idx, field in enumerate(fields):
                                    text=entries[idx]['context'],
                                    colors=True,
                                    choices=zip(idxs, opts))
+        if code == Dialog.CANCEL:
+            raise SystemExit
         #enter custom selection if <add new> was selected
         if choice == str(len(opts) - 1):
             ret, choice = dwindow.inputbox(title=field['title'],
@@ -120,6 +126,8 @@ for idx, field in enumerate(fields):
                                            colors=True,
                                            extra_button=True,
                                            extra_label='Save as Option')
+            if code == Dialog.CANCEL:
+                raise SystemExit
         else:
             choice = opts[int(choice)]
     else:
@@ -128,6 +136,8 @@ for idx, field in enumerate(fields):
                                        colors=True,
                                        extra_button=True,
                                        extra_label='Save as Option')
+        if code == Dialog.CANCEL:
+            raise SystemExit
     result = '' if '<none>' in choice else choice
     if ret == Dialog.EXTRA:
         new_field_vals[idx] = choice

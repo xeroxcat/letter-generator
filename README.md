@@ -12,3 +12,6 @@
 ## platforms 
 - Tested on debian 10 (buster), Python 3.7.3, pythondialog 3.5.1, dialog 1.3-20190211
 - I can look into windows support if there is demand. Dialog uses ncurses which has poor windows support. Might work with this program as a dialog backend: [[http://andrear.altervista.org/home/cdialog.php]]
+
+## documentation
+included examples of `letter_fields.json` and `letter_template.txt` give a basic explanation of different functions

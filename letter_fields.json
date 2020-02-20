@@ -1,0 +1,23 @@
+{
+    "fields": [
+        {
+            "title": "Name for Field 0",
+            "index": 0
+        },
+        {
+            "title": "Name for Field 1",
+            "index": 1
+        },
+        {
+            "title": "Name for Field 2",
+            "index": 2,
+            "options": [
+                "an option for field 2",
+                "another option",
+                "new options can be added at runtime"
+            ]
+        }
+    ],
+    "default_exclude": [
+    ]
+}

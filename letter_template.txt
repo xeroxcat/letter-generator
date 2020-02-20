@@ -1,0 +1,11 @@
+This is a template for generating a form letter, perhaps another written document.
+Each line in this template can be enabled or disabled, default behavior can be saved while running the generator.
+Line toggling is organized by paragraph. Leave an extra blank line to separate paragraphs.
+Each line break immediately after a period will be removed in the final letter.
+
+This {0} is field zero, specified in letter_fields.json. Its content is determined while running the generator.
+Optionally, values can be saved in letter_fields.json and selected between for each field like this: {2}.
+However, you can always add new options to a field while running the generator.
+Fields can be repeated in the template (like here {0}) and do not need to occur in the order of their indicies.
+You will only be prompted to fill fields on enabled lines. If you disable this line you will not need to customize {1}
+
